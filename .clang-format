@@ -1,0 +1,15 @@
+---
+# We'll use defaults from the LLVM style, but with 4 columns indentation.
+BasedOnStyle: Microsoft
+IndentWidth: 4
+AccessModifierOffset: -4
+
+# 不换行，保持初始值列表与函数体的大括号在同一行
+BreakConstructorInitializers: BeforeComma # 这样不会换行
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+# 允许较短的函数体放在同一行
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+# 让大括号与方法声明保持在同一行
+BreakBeforeBraces: Attach
