@@ -44,20 +44,22 @@ int main() {
         close(server_socket);
         return -1;
     }
-
     char buffer[BUFFER_SIZE];
-    // 模拟接收数据，可能出现粘包和半包情况
-    ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer), 0);
-    if (bytes_received > 0) {
-        buffer[bytes_received] = '\0';
-        std::cout << "接收到客户端数据: " << buffer << std::endl;
-    } else if (bytes_received == 0) {
-        std::cout << "客户端关闭连接" << std::endl;
-    } else {
-        std::cerr << "接收数据出错" << std::endl;
+
+    while (1) {
+        // 模拟接收数据，可能出现粘包和半包情况
+        ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer), 0);
+        if (bytes_received > 0) {
+            buffer[bytes_received] = '\0';
+            std::cout << "接收到客户端数据: " << buffer << std::endl;
+        } else if (bytes_received == 0) {
+            std::cout << "客户端关闭连接" << std::endl;
+        } else {
+            std::cerr << "接收数据出错" << std::endl;
+        }
+        close(client_socket);
     }
 
-    close(client_socket);
     close(server_socket);
     return 0;
 }

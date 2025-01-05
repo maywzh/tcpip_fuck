@@ -4,7 +4,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-#define SERVER_IP "localhost" // 这里假设服务器IP，实际中请替换为真实IP
+#define SERVER_IP "127.0.0.1" // 这里假设服务器IP，实际中请替换为真实IP
 #define PORT 8888
 #define BUFFER_SIZE 1024
 
